@@ -1,4 +1,4 @@
-package com.example.wht.pojo;
+package com.example.wht.user.pojo;
 
 public class UserInfo {
     /**

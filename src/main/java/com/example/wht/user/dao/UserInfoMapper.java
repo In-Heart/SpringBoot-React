@@ -1,6 +1,6 @@
-package com.example.wht.dao;
+package com.example.wht.user.dao;
 
-import com.example.wht.pojo.UserInfo;
+import com.example.wht.user.pojo.UserInfo;
 
 import java.util.List;
 
@@ -28,4 +28,6 @@ public interface UserInfoMapper {
      * @mbggenerated
      */
     List findAllUser();
+
+    Integer addUser(UserInfo userInfo);
 }

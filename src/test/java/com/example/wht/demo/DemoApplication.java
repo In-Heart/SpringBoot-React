@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@MapperScan("com.example.wht.dao")
+@MapperScan("com.example.wht.user.dao")
 @ComponentScan(basePackages = {"com.example.*"})
 public class DemoApplication {
 

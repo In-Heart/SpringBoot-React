@@ -1,6 +1,7 @@
-package com.example.wht.service;
+package com.example.wht.user.service;
 
-import com.example.wht.dao.UserInfoMapper;
+import com.example.wht.user.dao.UserInfoMapper;
+import com.example.wht.user.pojo.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,5 +22,10 @@ public class UserServiceImpl implements IUserService {
     public List findAllUser() {
         return userDao.findAllUser();
 
+    }
+
+    @Override
+    public Integer addUser(UserInfo userInfo) {
+        return userDao.addUser(userInfo);
     }
 }

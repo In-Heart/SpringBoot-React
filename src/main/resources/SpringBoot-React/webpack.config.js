@@ -20,7 +20,7 @@ module.exports = function webpackConfig(config, webpack) {
   if (process.argv[2] === 'server') {
     config.externals.push((context, request, callback, matches) => {
       if ((matches = /saltui$/.exec(request))) {
-        callback(null, `window.SaltUI`);
+        callback(null, `wgBindow.SaltUI`);
       } else if ((matches = /react\-addons((\-\w+)+)/.exec(request))) {
         const addon = matches[1].replace(/\-((\w)(\w+))/g, (p, p1, p2, p3) => (!/^(css|dom|umd)$/.test(p1) ? p2.toUpperCase() + p3 : p1.toUpperCase()));
         callback(null, `window.React.addons.${addon}`);

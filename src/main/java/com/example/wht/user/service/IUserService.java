@@ -1,4 +1,6 @@
-package com.example.wht.service;
+package com.example.wht.user.service;
+
+import com.example.wht.user.pojo.UserInfo;
 
 import java.util.List;
 
@@ -10,4 +12,5 @@ import java.util.List;
  */
 public interface IUserService {
     List findAllUser();
+    Integer addUser(UserInfo userInfo);
 }
