@@ -1,6 +1,6 @@
 package com.example.wht.user.controller;
 
-import com.example.wht.user.pojo.UserInfo;
+import com.example.wht.user.pojo.User;
 import com.example.wht.user.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +27,7 @@ public class UserController {
     }
 
     @RequestMapping(value = {"/addUser"},produces = {"application/json;charset=UTF-8"},method = RequestMethod.GET)
-    public Integer addUser(UserInfo userInfo){
-        return userService.addUser(userInfo);
+    public Integer addUser(User user){
+        return userService.addUser(user);
     }
 }

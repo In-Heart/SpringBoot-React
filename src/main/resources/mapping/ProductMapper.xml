@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.wht.product.dao.ProductMapper">
+  <resultMap id="BaseResultMap" type="com.example.wht.product.pojo.Product">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="goodName" jdbcType="VARCHAR" property="goodname" />
+    <result column="typeId" jdbcType="INTEGER" property="typeid" />
+    <result column="typeName" jdbcType="VARCHAR" property="typename" />
+    <result column="unit" jdbcType="VARCHAR" property="unit" />
+    <result column="purchasePrice" jdbcType="DECIMAL" property="purchaseprice" />
+    <result column="salePrice" jdbcType="DECIMAL" property="saleprice" />
+    <result column="salesAmount" jdbcType="INTEGER" property="salesamount" />
+    <result column="stockAmount" jdbcType="VARCHAR" property="stockamount" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, goodName, typeId, typeName, unit, purchasePrice, salePrice, salesAmount, stockAmount, 
+    note
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_goods
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_goods
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.wht.product.pojo.Product">
+    insert into t_goods (id, goodName, typeId, 
+      typeName, unit, purchasePrice, 
+      salePrice, salesAmount, stockAmount, 
+      note)
+    values (#{id,jdbcType=INTEGER}, #{goodname,jdbcType=VARCHAR}, #{typeid,jdbcType=INTEGER}, 
+      #{typename,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, #{purchaseprice,jdbcType=DECIMAL}, 
+      #{saleprice,jdbcType=DECIMAL}, #{salesamount,jdbcType=INTEGER}, #{stockamount,jdbcType=VARCHAR}, 
+      #{note,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.wht.product.pojo.Product">
+    insert into t_goods
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="goodname != null">
+        goodName,
+      </if>
+      <if test="typeid != null">
+        typeId,
+      </if>
+      <if test="typename != null">
+        typeName,
+      </if>
+      <if test="unit != null">
+        unit,
+      </if>
+      <if test="purchaseprice != null">
+        purchasePrice,
+      </if>
+      <if test="saleprice != null">
+        salePrice,
+      </if>
+      <if test="salesamount != null">
+        salesAmount,
+      </if>
+      <if test="stockamount != null">
+        stockAmount,
+      </if>
+      <if test="note != null">
+        note,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="goodname != null">
+        #{goodname,jdbcType=VARCHAR},
+      </if>
+      <if test="typeid != null">
+        #{typeid,jdbcType=INTEGER},
+      </if>
+      <if test="typename != null">
+        #{typename,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaseprice != null">
+        #{purchaseprice,jdbcType=DECIMAL},
+      </if>
+      <if test="saleprice != null">
+        #{saleprice,jdbcType=DECIMAL},
+      </if>
+      <if test="salesamount != null">
+        #{salesamount,jdbcType=INTEGER},
+      </if>
+      <if test="stockamount != null">
+        #{stockamount,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.wht.product.pojo.Product">
+    update t_goods
+    <set>
+      <if test="goodname != null">
+        goodName = #{goodname,jdbcType=VARCHAR},
+      </if>
+      <if test="typeid != null">
+        typeId = #{typeid,jdbcType=INTEGER},
+      </if>
+      <if test="typename != null">
+        typeName = #{typename,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaseprice != null">
+        purchasePrice = #{purchaseprice,jdbcType=DECIMAL},
+      </if>
+      <if test="saleprice != null">
+        salePrice = #{saleprice,jdbcType=DECIMAL},
+      </if>
+      <if test="salesamount != null">
+        salesAmount = #{salesamount,jdbcType=INTEGER},
+      </if>
+      <if test="stockamount != null">
+        stockAmount = #{stockamount,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.wht.product.pojo.Product">
+    update t_goods
+    set goodName = #{goodname,jdbcType=VARCHAR},
+      typeId = #{typeid,jdbcType=INTEGER},
+      typeName = #{typename,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      purchasePrice = #{purchaseprice,jdbcType=DECIMAL},
+      salePrice = #{saleprice,jdbcType=DECIMAL},
+      salesAmount = #{salesamount,jdbcType=INTEGER},
+      stockAmount = #{stockamount,jdbcType=VARCHAR},
+      note = #{note,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

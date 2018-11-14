@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.wht.product.dao.SalesOrderMapper">
+  <resultMap id="BaseResultMap" type="com.example.wht.product.pojo.SalesOrder">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="goodsId" jdbcType="INTEGER" property="goodsid" />
+    <result column="orderId" jdbcType="INTEGER" property="orderid" />
+    <result column="counts" jdbcType="INTEGER" property="counts" />
+    <result column="amount" jdbcType="DOUBLE" property="amount" />
+    <result column="order_time" jdbcType="DATE" property="orderTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, goodsId, orderId, counts, amount, order_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_sales_order
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_sales_order
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.wht.product.pojo.SalesOrder">
+    insert into t_sales_order (id, goodsId, orderId, 
+      counts, amount, order_time
+      )
+    values (#{id,jdbcType=INTEGER}, #{goodsid,jdbcType=INTEGER}, #{orderid,jdbcType=INTEGER}, 
+      #{counts,jdbcType=INTEGER}, #{amount,jdbcType=DOUBLE}, #{orderTime,jdbcType=DATE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.wht.product.pojo.SalesOrder">
+    insert into t_sales_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="goodsid != null">
+        goodsId,
+      </if>
+      <if test="orderid != null">
+        orderId,
+      </if>
+      <if test="counts != null">
+        counts,
+      </if>
+      <if test="amount != null">
+        amount,
+      </if>
+      <if test="orderTime != null">
+        order_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="goodsid != null">
+        #{goodsid,jdbcType=INTEGER},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=INTEGER},
+      </if>
+      <if test="counts != null">
+        #{counts,jdbcType=INTEGER},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DOUBLE},
+      </if>
+      <if test="orderTime != null">
+        #{orderTime,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.wht.product.pojo.SalesOrder">
+    update t_sales_order
+    <set>
+      <if test="goodsid != null">
+        goodsId = #{goodsid,jdbcType=INTEGER},
+      </if>
+      <if test="orderid != null">
+        orderId = #{orderid,jdbcType=INTEGER},
+      </if>
+      <if test="counts != null">
+        counts = #{counts,jdbcType=INTEGER},
+      </if>
+      <if test="amount != null">
+        amount = #{amount,jdbcType=DOUBLE},
+      </if>
+      <if test="orderTime != null">
+        order_time = #{orderTime,jdbcType=DATE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.wht.product.pojo.SalesOrder">
+    update t_sales_order
+    set goodsId = #{goodsid,jdbcType=INTEGER},
+      orderId = #{orderid,jdbcType=INTEGER},
+      counts = #{counts,jdbcType=INTEGER},
+      amount = #{amount,jdbcType=DOUBLE},
+      order_time = #{orderTime,jdbcType=DATE}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

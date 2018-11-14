@@ -1,6 +1,6 @@
 package com.example.wht.user.service;
 
-import com.example.wht.user.pojo.UserInfo;
+import com.example.wht.user.pojo.User;
 
 import java.util.List;
 
@@ -12,5 +12,8 @@ import java.util.List;
  */
 public interface IUserService {
     List findAllUser();
-    Integer addUser(UserInfo userInfo);
+    Integer addUser(User user);
+    int insert(User record);
+
+    int insertSelective(User record);
 }
