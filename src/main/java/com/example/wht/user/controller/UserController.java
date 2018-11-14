@@ -1,5 +1,7 @@
 package com.example.wht.user.controller;
 
+import com.example.wht.common.controller.BaseController;
+import com.example.wht.common.response.Result;
 import com.example.wht.user.pojo.User;
 import com.example.wht.user.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +24,9 @@ public class UserController {
     private IUserService userService;
 
     @RequestMapping(value = {"/findAllUser"},produces = {"application/json;charset=UTF-8"},method = RequestMethod.GET)
-    public List getAllUsers(){
-        return userService.findAllUser();
+    public Result getAllUsers(){
+        List<User> users = userService.findAllUser();
+        return new Result(users);
     }
 
     @RequestMapping(value = {"/addUser"},produces = {"application/json;charset=UTF-8"},method = RequestMethod.GET)
