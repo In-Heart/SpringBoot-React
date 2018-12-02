@@ -5,12 +5,12 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="findAllRoles">
     id, name
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
-    <include refid="Base_Column_List" />
+    <include refid="findAllRoles" />
     from t_role
     where id = #{id,jdbcType=INTEGER}
   </select>

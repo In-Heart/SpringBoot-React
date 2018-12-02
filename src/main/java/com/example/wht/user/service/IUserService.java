@@ -16,4 +16,6 @@ public interface IUserService {
     int insert(User record);
 
     int insertSelective(User record);
+
+    int deleteUserById(int userId);
 }

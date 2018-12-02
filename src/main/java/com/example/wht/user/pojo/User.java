@@ -1,17 +1,22 @@
 package com.example.wht.user.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer","fieldHandler"})
 public class User {
-    private Integer userid;
+    private int userid = 0;
 
-    private Integer roleid;
+    private int roleid = 0;
 
-    private String phone;
+    private String phone = "";
 
-    private String username;
+    private String username = "";
 
-    private String sex;
+    private String sex = "";
 
-    private String pwd;
+    private String pwd = "";
+
+    private int status = 0;
 
     public Integer getUserid() {
         return userid;
@@ -59,5 +64,21 @@ public class User {
 
     public void setPwd(String pwd) {
         this.pwd = pwd == null ? null : pwd.trim();
+    }
+
+    public void setUserid(int userid) {
+        this.userid = userid;
+    }
+
+    public void setRoleid(int roleid) {
+        this.roleid = roleid;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 }

@@ -79,4 +79,7 @@
       address = #{address,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="getAllCustomer" resultType="com.example.wht.product.pojo.Customer">
+    select * from t_customer;
+  </select>
 </mapper>

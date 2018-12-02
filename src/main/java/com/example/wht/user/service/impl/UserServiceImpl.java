@@ -1,7 +1,8 @@
-package com.example.wht.user.service;
+package com.example.wht.user.service.impl;
 
 import com.example.wht.user.dao.UserMapper;
 import com.example.wht.user.pojo.User;
+import com.example.wht.user.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,5 +38,10 @@ public class UserServiceImpl implements IUserService {
     @Override
     public int insertSelective(User record) {
         return userDao.insertSelective(record);
+    }
+
+    @Override
+    public int deleteUserById(int userId) {
+        return userDao.deleteByPrimaryKey(userId);
     }
 }
