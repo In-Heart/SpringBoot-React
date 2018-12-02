@@ -82,4 +82,7 @@
   <select id="getAllCustomer" resultType="com.example.wht.product.pojo.Customer">
     select * from t_customer;
   </select>
+  <select id="findCustomerByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select * from t_customer where name like "%"#{name}"%";
+  </select>
 </mapper>

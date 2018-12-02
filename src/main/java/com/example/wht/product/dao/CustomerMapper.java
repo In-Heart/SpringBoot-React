@@ -18,4 +18,6 @@ public interface CustomerMapper {
     int updateByPrimaryKey(Customer record);
 
     List getAllCustomer();
+
+    List findCustomerByName(String name);
 }

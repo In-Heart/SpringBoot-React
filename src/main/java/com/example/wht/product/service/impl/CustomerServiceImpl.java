@@ -23,4 +23,9 @@ public class CustomerServiceImpl implements ICustomerService {
     public List findAllCustomer() {
         return customerDao.getAllCustomer();
     }
+
+    @Override
+    public List findCustomerByName(String name) {
+        return customerDao.findCustomerByName(name);
+    }
 }

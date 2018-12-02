@@ -29,4 +29,11 @@ public class CustomerController {
         List<Customer> customerList = customerService.findAllCustomer();
         return new Result(customerList);
     }
+
+    @RequestMapping(value = "/findCustomerByName", produces = {"application/json;charset=UTF-8"},
+            method = RequestMethod.GET)
+    public Result findCustomerByName(String name) throws Exception{
+        List<Customer> customerList = customerService.findCustomerByName(name);
+        return new Result(customerList);
+    }
 }

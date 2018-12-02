@@ -10,4 +10,6 @@ import java.util.List;
  */
 public interface ICustomerService {
     List findAllCustomer();
+
+    List findCustomerByName(String name);
 }
