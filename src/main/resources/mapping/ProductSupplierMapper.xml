@@ -114,4 +114,10 @@
       level = #{level,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="findAllSupplier" resultType="com.example.wht.product.pojo.ProductSupplier">
+    select * from t_supplier;
+  </select>
+  <select id="findSupplierByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select * from t_supplier where name like "%"#{name}"%";
+  </select>
 </mapper>

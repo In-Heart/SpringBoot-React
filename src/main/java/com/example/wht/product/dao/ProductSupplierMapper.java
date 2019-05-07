@@ -2,6 +2,8 @@ package com.example.wht.product.dao;
 
 import com.example.wht.product.pojo.ProductSupplier;
 
+import java.util.List;
+
 public interface ProductSupplierMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -14,4 +16,8 @@ public interface ProductSupplierMapper {
     int updateByPrimaryKeySelective(ProductSupplier record);
 
     int updateByPrimaryKey(ProductSupplier record);
+
+    List findAllSupplier();
+
+    List findSupplierByName(String name);
 }

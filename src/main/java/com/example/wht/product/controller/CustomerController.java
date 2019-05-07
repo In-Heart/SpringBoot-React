@@ -32,7 +32,7 @@ public class CustomerController {
 
     @RequestMapping(value = "/findCustomerByName", produces = {"application/json;charset=UTF-8"},
             method = RequestMethod.GET)
-    public Result findCustomerByName(String name) throws Exception{
+    public Result findCustomerByName(String name){
         List<Customer> customerList = customerService.findCustomerByName(name);
         return new Result(customerList);
     }
