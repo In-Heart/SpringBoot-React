@@ -24,14 +24,14 @@ public class CustomerController {
     private ICustomerService customerService;
 
     @RequestMapping(value = "/findAllCustomer", produces = {"application/json;charset=UTF-8"},
-            method = RequestMethod.GET)
+            method = RequestMethod.DELETE)
     public Result getAllCustomer(){
         List<Customer> customerList = customerService.findAllCustomer();
         return new Result(customerList);
     }
 
     @RequestMapping(value = "/findCustomerByName", produces = {"application/json;charset=UTF-8"},
-            method = RequestMethod.GET)
+            method = RequestMethod.DELETE)
     public Result findCustomerByName(String name){
         List<Customer> customerList = customerService.findCustomerByName(name);
         return new Result(customerList);

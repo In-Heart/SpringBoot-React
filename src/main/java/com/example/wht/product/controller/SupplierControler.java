@@ -25,7 +25,7 @@ public class SupplierControler {
     private ISupplierService supplierService;
 
     @RequestMapping(value = "/getAllSupplier", produces = {"application/json;charset=UTF-8"},
-            method = RequestMethod.GET)
+            method = RequestMethod.DELETE)
     private Result getAllSupplier(){
         List<ProductSupplier> suppliers = supplierService.getAllSupplier();
         if(suppliers != null){
@@ -35,7 +35,7 @@ public class SupplierControler {
     }
 
     @RequestMapping(value = "/findSupplierByName", produces = {"application/json;charset=UTF-8"},
-            method = RequestMethod.GET)
+            method = RequestMethod.DELETE)
     private Result findSupplierByName(String name){
         List<ProductSupplier> suppliers = supplierService.findSupplierByName(name);
         if(suppliers != null){
@@ -45,7 +45,7 @@ public class SupplierControler {
     }
 
     @RequestMapping(value = "/findSupplierById", produces = {"application/json;charset=UTF-8"},
-            method = RequestMethod.GET)
+            method = RequestMethod.DELETE)
     private Result findSupplierById(Integer id){
         ProductSupplier supplier = supplierService.findSupplierById(id);
         if(supplier != null){
